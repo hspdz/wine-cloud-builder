@@ -51,7 +51,8 @@ brew install \
     freetype \
     gnutls \
     molten-vk \
-    sdl2
+    sdl2 \
+    unixodbc
 
 # endgroup
 
