@@ -45,7 +45,10 @@ jobs:
           arch -x86_64 /bin/bash -c "NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           test -x /usr/local/bin/brew && echo 'Intel brew OK' || (echo 'Intel brew MISSING'; exit 1)
       - name: Run vanilla.sh
-        run: ./mbuild.sh
+        run: |
+          export PATH="/usr/local/bin:$PATH"
+          which brew; brew --prefix
+          ./mbuild.sh
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
