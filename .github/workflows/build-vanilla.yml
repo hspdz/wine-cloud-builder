@@ -22,20 +22,20 @@ jobs:
     runs-on:  macos-14
 
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - run: npm ci
       - name: Checkout wine
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: hspdz/wine
           path: sources/wine
           ref: ${{ github.event.inputs.branch }}
       # - name: Checkout dxvk
-      #   uses: actions/checkout@v3
+      #   uses: actions/checkout@v4
       #   with:
       #     repository: 3Shain/DXVK-macOS
       #     path: sources/dxvk
@@ -44,7 +44,7 @@ jobs:
         run: ./mbuild.sh
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-normal
           path: ${{ env.PACKAGE_UPLOAD }}
