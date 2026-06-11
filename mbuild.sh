@@ -44,7 +44,8 @@ begingroup "Installing Dependencies"
 brew install \
     bison \
     pkgconfig \
-    coreutils
+    coreutils \
+    autoconf
 
 # runtime dependencies for crossover-wine
 brew install \
@@ -114,6 +115,13 @@ export ac_cv_lib_soname_vulkan=""
 #     cp ${INSTALLROOT}/${DXVK_INSTALLATION}.tar.gz ${PACKAGE_UPLOAD}/
 #     endgroup
 # fi
+
+begingroup "Regenerate configure (wdfldr.sys patch)"
+pushd "$GITHUB_WORKSPACE/sources/wine"
+autoconf
+grep -c "dlls/wdfldr.sys" configure || echo "WARN: wdfldr not in configure"
+popd
+endgroup
 
 begingroup "Configure wine64"
 mkdir -p ${BUILDROOT}/wine64
