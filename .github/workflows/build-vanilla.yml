@@ -1,8 +1,4 @@
 # modified from https://github.com/GabLeRoux/macos-crossover-wine-cloud-builder/blob/main/.github/workflows/build_local.yml
-- name: Install Intel Homebrew (Rosetta)
-  run: |
-    arch -x86_64 /bin/bash -c "NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    test -x /usr/local/bin/brew && echo 'Intel brew OK' || (echo 'Intel brew MISSING'; exit 1)
 name: vanilla
 
 on:
