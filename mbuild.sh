@@ -121,7 +121,6 @@ ${WINE_CONFIGURE} \
     --disable-option-checking \
     --enable-win64 \
     --enable-archs=i386,x86_64 \
-    --without-opengl \
     --disable-tests \
     --without-alsa \
     --without-capi \
@@ -141,7 +140,7 @@ ${WINE_CONFIGURE} \
     --with-mingw \
     --without-netapi \
     --with-opencl \
-    --with-opengl \
+    --without-opengl \
     --without-oss \
     --with-pcap \
     --with-pthread \
